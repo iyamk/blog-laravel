@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Добавление поста</h1>
+            <h1 class="m-0">Add post</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -31,46 +31,65 @@
               <div class="form-group w-25">
                 <input type="text" class="form-control" name="title" placeholder="Название поста" value="{{ old('title') }}">
                 @error('title')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">This field is required</div>
                 @enderror
               </div>
               <div class="form-group">
                 <textarea id="summernote" name="content">{{ old('content') }}</textarea>
                 @error('content')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">This field is required</div>
                 @enderror
               </div>
               <div class="form-group w-25">
-                <label for="exampleInputFile">Добавить превью</label>
+                <label for="exampleInputFile">Preview image</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" name="preview_image">
-                    <label class="custom-file-label">Выберите изображение</label>
-                  </div>
-                  <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
+                    <label class="custom-file-label">Choose an image</label>
                   </div>
                 </div>
                 @error('preview_image')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">This field is required</div>
                 @enderror
               </div>
               <div class="form-group w-25">
-                <label for="exampleInputFile">Добавить главное изображение</label>
+                <label for="exampleInputFile">Main image</label>
                 <div class="input-group">
                   <div class="custom-file">
                     <input type="file" class="custom-file-input" name="main_image">
-                    <label class="custom-file-label">Выберите изображение</label>
+                    <label class="custom-file-label">Choose an image</label>
                   </div>
-                  <div class="input-group-append">
-                    <span class="input-group-text">Upload</span>
-                  </div>
+
                 </div>
                 @error('main_image')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">This field is required</div>
                 @enderror
               </div>
-              <input type="submit" class="btn btn-primary" value="Добавить">
+              <div class="form-group w-50">
+                <label>Category</label>
+                <select name="category_id" class="form-control">
+                  @foreach($categories as $category)
+                  <option value="{{ $category->id }}"
+                    @if ($category->id == old('category_id')) selected @endif>
+                    {{ $category->title }}
+                  </option>
+                  @endforeach
+                </select>
+              </div>
+              <div class="form-group">
+                  <label>Tags</label>
+                  <select name="tag_ids[]" class="select2" multiple="multiple" data-placeholder="Select tags" style="width: 100%;">
+                    @foreach($tags as $tag)
+                    <option value="{{ $tag->id }}"
+                      @if (is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids'))) selected @endif>
+                      {{ $tag->title }}
+                    </option>
+                    @endforeach
+                  </select>
+                </div>
+              <div class="form-group">
+                <input type="submit" class="btn btn-primary" value="Add">
+              </div>
             </form>
           </div>
         </div>

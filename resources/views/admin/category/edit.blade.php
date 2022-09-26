@@ -7,7 +7,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Редактирование категории</h1>
+            <h1 class="m-0">Edit category</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -30,12 +30,12 @@
               @csrf
               @method('PATCH')
               <div class="form-group">
-                <input type="text" class="form-control" name="title" placeholder="Название категории" value="{{ $category->title }}">
+                <input type="text" class="form-control" name="title" placeholder="Category title" value="{{ $category->title }}">
                 @error('title')
-                  <div class="text-danger">Это поле необходимо для заполнения</div>
+                  <div class="text-danger">This field is required</div>
                 @enderror
               </div>
-              <input type="submit" class="btn btn-primary" value="Обновить">
+              <input type="submit" class="btn btn-primary" value="Update">
             </form>
           </div>
         </div>

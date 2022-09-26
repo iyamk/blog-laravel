@@ -43,7 +43,7 @@
                       <td>{{ $post->id }}</td>
                     </tr>
                     <tr>
-                      <td>Название</td>
+                      <td>Title</td>
                       <td>{{ $post->title }}</td>
                     </tr>
                   </tbody>

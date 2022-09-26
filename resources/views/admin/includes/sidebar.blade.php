@@ -8,7 +8,7 @@
         <a href="{{ route('admin.category.index') }}" class="nav-link">
           <i class="nav-icon fas fa-th-list"></i>
           <p>
-            Категории
+            Categories
           </p>
         </a>
       </li>
@@ -18,7 +18,7 @@
         <a href="{{ route('admin.tag.index') }}" class="nav-link">
           <i class="nav-icon fas fa-tags"></i>
           <p>
-            Теги
+            Tags
           </p>
         </a>
       </li>
@@ -28,7 +28,7 @@
         <a href="{{ route('admin.post.index') }}" class="nav-link">
           <i class="nav-icon far fa-clipboard"></i>
           <p>
-            Посты
+            Posts
           </p>
         </a>
       </li>
